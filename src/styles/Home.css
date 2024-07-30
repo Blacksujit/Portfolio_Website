@@ -1,0 +1,59 @@
+.glowing-button {
+    position: fixed; /* Keeps the button in view */
+    top: 20px; /* Position from the top */
+    right: 20px; /* Position from the right */
+    background: linear-gradient(135deg, #ff0081, #ff8c00, #fffb00, #00c9ff, #00ff4f);
+    background-size: 400% 400%;
+    color: black;
+    padding: 8px 16px; /* Smaller padding for a smaller button */
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    font-size: 14px; /* Smaller font size */
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Slightly smaller shadow */
+    animation: glowing 10s ease infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .glowing-button:hover {
+    transform: scale(1.05); /* Slightly smaller scale effect */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+  }
+  
+  .glowing-button:focus {
+    outline: none;
+  }
+  
+  @keyframes glowing {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .glowing-button {
+      top: 15px; /* Adjusted top position */
+      right: 15px; /* Adjusted right position */
+      padding: 6px 12px; /* Smaller padding for mobile */
+      font-size: 12px; /* Smaller font size for mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .glowing-button {
+      top: 10px; /* Further adjusted top position */
+      right: 10px; /* Further adjusted right position */
+      padding: 5px 10px; /* Even smaller padding */
+      font-size: 10px; /* Even smaller font size */
+    }
+  }
+  
