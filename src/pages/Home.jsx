@@ -19,8 +19,8 @@ const Home = ({ isMenuOpen }) => {
   const [biplanePosition, setBiplanePosition] = useState([0, -4, -4]);
   const [islandScale, setIslandScale] = useState([1, 1, 1]);
   const [islandPosition, setIslandPosition] = useState([0, -6.5, -43.4]);
-  const [birdScale, setBirdScale] = useState([1, 1, 1]); // Default scale for Bird
-  const [birdPosition, setBirdPosition] = useState([0, 0, 0]); // Default position for Bird
+  const [birdScale, setBirdScale] = useState([1, 1, 1]);
+  const [birdPosition, setBirdPosition] = useState([0, 0, 0]);
 
   useEffect(() => {
     if (isPlayingMusic) {
@@ -67,59 +67,58 @@ const Home = ({ isMenuOpen }) => {
 
   const adjustBirdForScreenSize = () => {
     if (window.innerWidth < 768) {
-      return [[0.5, 0.5, 0.5], [0, 2, 0]]; // Smaller scale and adjusted position for mobile
+      return [[0.5, 0.5, 0.5], [0, 2, 0]];
     } else {
-      return [[1, 1, 1], [0, 0, 0]]; // Default scale and position for desktop
+      return [[1, 1, 1], [0, 0, 0]];
     }
   };
 
   return (
-    <section className='w-full h-screen relative'>
-      <div className={`absolute top-28 left-0 right-0 z-10 flex items-center justify-center ${isMenuOpen ? 'hidden' : ''}`}>
+    <section className='home-section'>
+      <div className={`home-info-container ${isMenuOpen ? 'hidden' : ''}`}>
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
 
-      <Canvas
-        className={`w-full h-screen bg-transparent ${
-          isRotating ? "cursor-grabbing" : "cursor-grab"
-        }`}
-        camera={{ near: 0.1, far: 1000 }}
-      >
-        <Suspense fallback={<Loader />}>
-          <directionalLight position={[1, 1, 1]} intensity={2} />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 5, 10]} intensity={2} />
-          <spotLight
-            position={[0, 50, 10]}
-            angle={0.15}
-            penumbra={1}
-            intensity={2}
-          />
-          <hemisphereLight
-            skyColor='#b1e1ff'
-            groundColor='#000000'
-            intensity={1}
-          />
+      <div className='canvas-wrapper'>
+        <Canvas
+          className={`canvas ${isRotating ? "cursor-grabbing" : "cursor-grab"}`}
+          camera={{ near: 0.1, far: 1000 }}
+        >
+          <Suspense fallback={<Loader />}>
+            <directionalLight position={[1, 1, 1]} intensity={2} />
+            <ambientLight intensity={0.5} />
+            <pointLight position={[10, 5, 10]} intensity={2} />
+            <spotLight
+              position={[0, 50, 10]}
+              angle={0.15}
+              penumbra={1}
+              intensity={2}
+            />
+            <hemisphereLight
+              skyColor='#b1e1ff'
+              groundColor='#000000'
+              intensity={1}
+            />
 
-          <Bird scale={birdScale} position={birdPosition} />
-          <Sky isRotating={isRotating} />
-          <Island
-            isRotating={isRotating}
-            setIsRotating={setIsRotating}
-            setCurrentStage={setCurrentStage}
-            position={islandPosition}
-            rotation={[0.1, 4.7077, 0]}
-            scale={islandScale}
-          />
-          <Plane
-            isRotating={isRotating}
-            position={biplanePosition}
-            rotation={[0, 20.1, 0]}
-            scale={biplaneScale}
-          />
-        </Suspense>
-      </Canvas>
-
+            <Bird scale={birdScale} position={birdPosition} />
+            <Sky isRotating={isRotating} />
+            <Island
+              isRotating={isRotating}
+              setIsRotating={setIsRotating}
+              setCurrentStage={setCurrentStage}
+              position={islandPosition}
+              rotation={[0.1, 4.7077, 0]}
+              scale={islandScale}
+            />
+            <Plane
+              isRotating={isRotating}
+              position={biplanePosition}
+              rotation={[0, 20.1, 0]}
+              scale={biplaneScale}
+            />
+          </Suspense>
+        </Canvas>
+      </div>
       <div className='absolute bottom-2 left-2'>
         <img
           src={!isPlayingMusic ? soundoff : soundon}
@@ -128,6 +127,7 @@ const Home = ({ isMenuOpen }) => {
           className='w-10 h-10 cursor-pointer object-contain'
         />
       </div>
+
 
       <div className='absolute top-5 right-5'>
         <Link to="/ar">

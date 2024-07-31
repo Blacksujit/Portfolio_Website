@@ -57,3 +57,45 @@
     font-size: 0.75rem; /* Even smaller font size using rem units */
   }
 }
+
+/* Home.css */
+.scrollable-section {
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  position: relative;
+}
+
+.canvas-container {
+  height: auto; /* Allow height to be determined by content */
+  width: 100vw; /* Full width */
+  overflow: hidden; /* Hide any overflow within the container */
+}
+
+
+/* Home.css */
+.home-section {
+  position: relative;
+  width: 100vw;
+  overflow: auto; /* Allows scrolling */
+}
+
+.home-info-container {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-wrapper {
+  width: 100%;
+  height: 100vh; /* Adjust as needed to control the visible area */
+}
+
+.canvas {
+  width: 100%;
+  height: 100%; /* Ensure it takes up the full height of the container */
+}
