@@ -68,9 +68,9 @@ const ARExperience = () => {
       };
 
       Promise.all([
-        loadImage('public/hat.png'),
-        loadImage('public/glasses.jpeg'),
-        loadImage('public/hair.jpeg')
+        loadImage(' /images/hat.png'),
+        loadImage('/images/glasses.jpeg'),
+        loadImage('/images/hair.jpeg')
       ]).then(([hat, glasses, hairColor]) => {
         setImages({ hat, glasses, hairColor });
       }).catch(err => console.error('Error loading images:', err));
