@@ -14,7 +14,7 @@ const About = () => {
       <h1 className='head-text'>
         Hello, I'm{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
-          Sujit <br /> Fullstack AI Developer
+          Sujit <br />  AI Fullstack Developer
         </span>{" "}
         👋
       </h1>
