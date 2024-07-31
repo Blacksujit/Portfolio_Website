@@ -19,6 +19,8 @@ const Home = ({ isMenuOpen }) => {
   const [biplanePosition, setBiplanePosition] = useState([0, -4, -4]);
   const [islandScale, setIslandScale] = useState([1, 1, 1]);
   const [islandPosition, setIslandPosition] = useState([0, -6.5, -43.4]);
+  const [birdScale, setBirdScale] = useState([1, 1, 1]); // Default scale for Bird
+  const [birdPosition, setBirdPosition] = useState([0, 0, 0]); // Default position for Bird
 
   useEffect(() => {
     if (isPlayingMusic) {
@@ -33,10 +35,13 @@ const Home = ({ isMenuOpen }) => {
     const handleResize = () => {
       const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
       const [islandScale, islandPosition] = adjustIslandForScreenSize();
+      const [birdScale, birdPosition] = adjustBirdForScreenSize();
       setBiplaneScale(biplaneScale);
       setBiplanePosition(biplanePosition);
       setIslandScale(islandScale);
       setIslandPosition(islandPosition);
+      setBirdScale(birdScale);
+      setBirdPosition(birdPosition);
     };
 
     handleResize();
@@ -57,6 +62,14 @@ const Home = ({ isMenuOpen }) => {
       return [[0.9, 0.9, 0.9], [0, -6.5, -43.4]];
     } else {
       return [[1, 1, 1], [0, -6.5, -43.4]];
+    }
+  };
+
+  const adjustBirdForScreenSize = () => {
+    if (window.innerWidth < 768) {
+      return [[0.5, 0.5, 0.5], [0, 2, 0]]; // Smaller scale and adjusted position for mobile
+    } else {
+      return [[1, 1, 1], [0, 0, 0]]; // Default scale and position for desktop
     }
   };
 
@@ -88,7 +101,7 @@ const Home = ({ isMenuOpen }) => {
             intensity={1}
           />
 
-          <Bird />
+          <Bird scale={birdScale} position={birdPosition} />
           <Sky isRotating={isRotating} />
           <Island
             isRotating={isRotating}
