@@ -1,4 +1,4 @@
-import { forage, shopify, starbucks, tesla , socialSummer1 } from "../assets/images";
+import { forage, shopify, starbucks, tesla , socialsummer1 } from "../assets/images";
 import {
     avalanche,
     Harvest,
@@ -219,7 +219,7 @@ export const experiences = [
     {
         title: "Open Source Developer",
         company_name: "Social Summer Of Code",
-        icon: socialSummer1,
+        icon: socialsummer1,
         iconBg: "#fbc3bc",
         date: "March 2024 -  Present 2024",
         points: [
