@@ -3,27 +3,29 @@
 /* Styling the widget container */
 .chat-container {
     position: fixed;
-    bottom: 20px; /* Adjust this value as needed to ensure visibility */
-    right: 20px; /* Adjust this value as needed to ensure visibility */
-    z-index: 1000; /* Ensure it is on top of other elements */
+    bottom: 20px; /* Adjust if needed */
+    right: 20px; /* Adjust if needed */
+    z-index: 1000; /* Ensure it's above other elements */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     overflow: hidden; /* Ensure no overflow outside the container */
+    display: flex; /* Flex container for positioning icon */
+    align-items: center; /* Center the icon */
 }
 
 /* Robot icon styling */
 .robot-icon {
     position: absolute;
-    top: -30px; /* Adjust position to ensure icon is visible */
-    right: 10px; /* Position the icon to the right side */
+    top: -30px; /* Ensure visibility */
+    right: -10px; /* Adjust to fit */
     width: 60px;
     height: 60px;
     background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqsm_bNBjMCc6idF-8tZVP3e9VKM8QjYVZeg&s') no-repeat center center;
     background-size: contain;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1100; /* Ensure it is above the widget */
+    z-index: 1100; /* Ensure it's above the widget */
 }
 
 /* Hover effects */

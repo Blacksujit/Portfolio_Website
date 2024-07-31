@@ -118,7 +118,7 @@ const Home = () => {
 
       <div className='absolute top-5 right-5'>
         <Link to="/ar">
-          <button className='glowing-button'>Enter AR Experience</button>
+          <button className='glowing-button '>Enter AR Experience</button>
         </Link>
       </div>
     </section>
