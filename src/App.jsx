@@ -1,5 +1,5 @@
-// App.jsx
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { useState } from "react";
 import { Footer, Navbar } from "./components";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -10,12 +10,18 @@ import ARExperience from "./pages/ARExperience";
 import './App.css';
 
 const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <Router>
-      <Navbar />
+      <Navbar isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       <main className='bg-slate-300/20'>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home isMenuOpen={isMenuOpen} />} />
           <Route path='/ar' element={<ARExperience />} />
           <Route path='/about' element={<About />} />
           <Route path='/projects' element={<Projects />} />

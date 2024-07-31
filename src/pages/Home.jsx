@@ -7,7 +7,7 @@ import { soundoff, soundon } from "../assets/icons";
 import { Bird, Island, Plane, Sky } from "../models";
 import '../styles/Home.css';
 
-const Home = () => {
+const Home = ({ isMenuOpen }) => {
   const audioRef = useRef(new Audio(sakura));
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
@@ -62,7 +62,7 @@ const Home = () => {
 
   return (
     <section className='w-full h-screen relative'>
-      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+      <div className={`absolute top-28 left-0 right-0 z-10 flex items-center justify-center ${isMenuOpen ? 'hidden' : ''}`}>
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
 
@@ -118,7 +118,9 @@ const Home = () => {
 
       <div className='absolute top-5 right-5'>
         <Link to="/ar">
-          <button className='glowing-button '>Enter AR Experience</button>
+          <button className='glowing-button text-xs py-2 px-4'>
+            AR Experience
+          </button>
         </Link>
       </div>
     </section>
