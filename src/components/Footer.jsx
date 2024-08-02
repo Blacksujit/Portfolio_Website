@@ -12,7 +12,7 @@ const Footer = () => {
           Crafted with ❤️ by <strong>Sujit Nirmal</strong>
         </p>
 
-        <div className='flex gap-3 justify-center items-center'>
+        <div className='flex gap-10 justify-center items-center'>
           {socialLinks.map((link) => (
             <Link key={link.name} to={link.link} target='_blank'>
               <img
