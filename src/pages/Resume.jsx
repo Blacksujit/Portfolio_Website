@@ -7,13 +7,13 @@ const Resume = () => {
         <h1 className='head-text'>Resume</h1>
         
         <iframe
-          src='/replica_resume14.pdf'
+          src='/Sujit_Nirmal_updated_resume.pdf'
           className='w-full h-screen mt-14'
           title='Resume'
         ></iframe>
 
         <a
-          href='/replica_resume14.pdf'
+          href='/Sujit_Nirmal_updated_resume.pdf'
           download
           className='block mt-4 text-center bg-blue-500 text-white py-2 px-4 rounded'
         >
